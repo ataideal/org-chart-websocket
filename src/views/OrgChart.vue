@@ -122,7 +122,7 @@
         this.connectChannel()
       },
       connectSocket () {
-        this.socket = new Socket('ws://localhost:4000/socket', {params: {username: this.username}})
+        this.socket = new Socket(`${process.env.WEBSOCKET_URL}/socket`, {params: {username: this.username}})
         this.socket.onError((error) => {
           console.log(`there was an error with the connection! ${error}`)
           this.isUserOnline = false
